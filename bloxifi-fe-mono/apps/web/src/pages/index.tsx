@@ -9,7 +9,7 @@ const HomePage = () => {
     <Wrapper>
       <CoverLayout>
         <Text type="heading 1" semiBold align="center">
-          {t('filecoin.home.sysTestMatrix')}
+          {t('bloxifi.home.sysTestMatrix')}
         </Text>
         <StackLayout
           gap={4}
@@ -18,19 +18,19 @@ const HomePage = () => {
           data-testId="text-body"
         >
           <Text type="text xl" color="textGray" semiBold align="center">
-            {t('filecoin.home.subHeading')}
+            {t('bloxifi.home.subHeading')}
           </Text>
 
           <Text type="text xl" semiBold align="center">
-            <i>{t('filecoin.home.paragraph1')}</i>
+            <i>{t('bloxifi.home.paragraph1')}</i>
           </Text>
           <Text type="text xl" semiBold align="center">
-            <i>{t('filecoin.home.paragraph2')}</i>
+            <i>{t('bloxifi.home.paragraph2')}</i>
           </Text>
         </StackLayout>
         <Footer>
           <Text type="text xl" semiBold align="center">
-            {t('filecoin.home.developedBy')}{' '}
+            {t('bloxifi.home.developedBy')}{' '}
           </Text>
         </Footer>
       </CoverLayout>
