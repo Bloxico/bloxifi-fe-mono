@@ -4,8 +4,6 @@ import React from 'react'
 import { Text } from '../Text'
 import { BoxLayout } from './BoxLayout'
 
-
-
 export interface FooterProps {
   /**
    * The element to render the `<Footer>` as. Defaults to 'footer'.

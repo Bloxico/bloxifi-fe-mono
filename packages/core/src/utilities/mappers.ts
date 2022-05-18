@@ -1,4 +1,3 @@
-
 export const filterItems = (items, filter, filterBy) => {
   if (filter.trim().length === 0) {
     return items
