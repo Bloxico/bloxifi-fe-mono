@@ -8,6 +8,7 @@
     "packages/*"
   ],
   "scripts": {
+    "prepare": "husky install",
     "bootstrap": "lerna bootstrap",
     "build": "lerna run build --parallel",
     "serve": "lerna run serve --parallel",
