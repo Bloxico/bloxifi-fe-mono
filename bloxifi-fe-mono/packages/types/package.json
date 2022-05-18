@@ -1,0 +1,23 @@
+{
+  "name": "@bloxifi/types",
+  "version": "1.0.0",
+  "private": true,
+  "description": "> TODO: description",
+  "author": "Aleksa Toljic <aleksa.toljic@bloxico.com>",
+  "license": "ISC",
+  "main": "src/index.ts",
+  "files": [
+    "lib"
+  ],
+  "publishConfig": {
+    "access": "public"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/Bloxico/bloxifi-fe-mono.git"
+  },
+  "scripts": {},
+  "bugs": {
+    "url": "https://github.com/Bloxico/bloxifi-fe-mono/issues"
+  }
+}
