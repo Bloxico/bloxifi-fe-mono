@@ -1,5 +1,6 @@
 import React from 'react'
 import { render, act } from '@testing-library/react'
+import { expect } from '@jest/globals'
 
 import { NotificationManager, NotificationBus } from '../NotificationManager'
 

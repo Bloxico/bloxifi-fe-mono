@@ -4,8 +4,6 @@ module.exports = {
   parser: '@typescript-eslint/parser',
   extends: [
     'eslint:recommended',
-    'plugin:@typescript-eslint/recommended',
-    'plugin:@typescript-eslint/recommended-requiring-type-checking',
     'plugin:react/recommended',
     'plugin:prettier/recommended',
     'plugin:import/recommended',
@@ -17,18 +15,12 @@ module.exports = {
     es6: true,
     node: true,
     browser: true,
-    jest: true,
-  },
-  parserOptions: {
-    ecmaVersion: 2018,
-    sourceType: 'module',
-    ecmaFeatures: {
-      jsx: true,
-    },
-    tsconfigRootDir: __dirname,
-    project: ['./tsconfig.json'],
   },
   rules: {
+    'react/jsx-curly-brace-presence': [
+      1,
+      { props: 'never', children: 'never' },
+    ],
     'import/no-unresolved': [1, { commonjs: true }],
     'import/first': 2,
     'import/newline-after-import': 1,
@@ -49,25 +41,9 @@ module.exports = {
     'no-whitespace-before-property': 'error',
     'react/display-name': 'off',
     'arrow-parens': [1, 'as-needed'],
-    '@typescript-eslint/camelcase': 0,
     'jsx-a11y/heading-has-content': 0,
     'prettier/prettier': 1,
-    '@typescript-eslint/no-unused-vars': 1,
-    '@typescript-eslint/no-explicit-any': 0,
-    '@typescript-eslint/explicit-function-return-type': 0,
-    '@typescript-eslint/member-delimiter-style': [
-      'error',
-      {
-        multiline: {
-          delimiter: 'none',
-          requireLast: false,
-        },
-        singleline: {
-          delimiter: 'semi',
-          requireLast: false,
-        },
-      },
-    ],
+
     // TODO: turn on later
     'react/prop-types': 'off',
   },
@@ -75,14 +51,54 @@ module.exports = {
     react: {
       version: 'detect',
     },
-    'import/resolver': {
-      'eslint-import-resolver-custom-alias': {
-        alias: {
-          '@': './src',
-        },
-        extensions: ['.ts', '.tsx'],
-        packages: ['apps/*'],
+  },
+  overrides: [
+    {
+      files: ['*.mdx'],
+      extends: 'plugin:mdx/recommended',
+    },
+    {
+      files: ['*.ts', '*.tsx'], // Your TypeScript files extension
+
+      // As mentioned in the comments, you should extend TypeScript plugins here,
+      // instead of extending them outside the `overrides`.
+      // If you don't want to extend any rules, you don't need an `extends` attribute.
+      extends: [
+        'plugin:@typescript-eslint/recommended',
+        'plugin:@typescript-eslint/recommended-requiring-type-checking',
+      ],
+
+      rules: {
+        '@typescript-eslint/camelcase': 0,
+        '@typescript-eslint/no-unused-vars': 1,
+        '@typescript-eslint/no-explicit-any': 0,
+        '@typescript-eslint/no-var-requires': 0,
+        '@typescript-eslint/restrict-template-expressions': 0,
+        '@typescript-eslint/no-unsafe-assignment': 0,
+        '@typescript-eslint/no-unsafe-member-access': 0,
+        '@typescript-eslint/restrict-plus-operands': 0,
+        '@typescript-eslint/no-unsafe-argument': 0,
+        '@typescript-eslint/no-unsafe-return': 0,
+        '@typescript-eslint/no-unsafe-call': 0,
+        '@typescript-eslint/explicit-function-return-type': 0,
+        '@typescript-eslint/member-delimiter-style': [
+          'error',
+          {
+            multiline: {
+              delimiter: 'none',
+              requireLast: false,
+            },
+            singleline: {
+              delimiter: 'semi',
+              requireLast: false,
+            },
+          },
+        ],
+      },
+
+      parserOptions: {
+        project: ['./tsconfig.json'], // Specify it only for TypeScript files
       },
     },
-  },
+  ],
 }

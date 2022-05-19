@@ -29,3 +29,7 @@ async function init() {
 }
 
 init()
+  .then(r => r)
+  .catch(e => {
+    throw new Error(e)
+  })

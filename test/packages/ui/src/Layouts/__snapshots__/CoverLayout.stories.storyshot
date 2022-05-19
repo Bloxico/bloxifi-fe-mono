@@ -1,0 +1,41 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Storyshots Layout/CoverLayout Overview 1`] = `
+<div
+  style={
+    Object {
+      "padding": "2rem",
+    }
+  }
+>
+  <div
+    className="sc-kDDrLX gDLAiN"
+    setFooter={[Function]}
+    setHeader={[Function]}
+  >
+    <div
+      className="sc-jqUVSM sc-iqcoie ikCoyn cyurwj"
+      gap={4}
+    >
+      <div
+        className="sc-hKMtZM kNQcBj"
+        style={
+          Object {
+            "background": "#f9d56e",
+          }
+        }
+      >
+        <div
+          style={
+            Object {
+              "background": "#e8505b",
+              "minHeight": 120,
+              "minWidth": 240,
+            }
+          }
+        />
+      </div>
+    </div>
+  </div>
+</div>
+`;

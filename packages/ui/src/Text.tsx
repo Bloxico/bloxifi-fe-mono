@@ -1,6 +1,7 @@
 import classNames from 'classnames'
 import React, { FunctionComponent, HTMLAttributes } from 'react'
 import styled from 'styled-components'
+
 import { Colors } from './styles/colors'
 import { FullWidth, Hidden } from './styles/mixins'
 

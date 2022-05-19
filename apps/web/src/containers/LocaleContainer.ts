@@ -36,8 +36,8 @@ const reducer = (state: State, action: Action<ActionType>) => {
 function useLocale() {
   const [state, dispatch] = useReducer(reducer, localeInitialState)
 
-  const setLanguage = (value: string = localeInitialState.language) => {
-    i18n.changeLanguage(value)
+  const setLanguage = async (value: string = localeInitialState.language) => {
+    await i18n.changeLanguage(value)
     dispatch({ type: 'SET_LANGUAGE', value })
   }
 

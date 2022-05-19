@@ -2,9 +2,10 @@ module.exports = {
   automock: false,
   globals: {
     'ts-jest': {
-      isolatedModules: true,
+      tsconfig: './tsconfig.json',
     },
   },
+  testEnvironment: 'jest-environment-jsdom',
   setupFilesAfterEnv: ['./test/setup.ts'],
   collectCoverageFrom: ['**/*.tsx'],
   moduleNameMapper: {
@@ -14,7 +15,7 @@ module.exports = {
     '\\.(css|less)$': '<rootDir>/test/mocks/styleMock.js',
   },
   testMatch: ['**/__tests__/**/*.spec.[jt]s?(x)', '**/test/Storyshots.spec.ts'],
-  moduleFileExtensions: ['ts', 'tsx', 'js', 'jsx', 'json', 'node'],
+  moduleFileExtensions: ['ts', 'tsx', 'js', 'jsx', 'json'],
   transform: {
     '^.+\\.(ts|tsx|js|jsx)?$': 'ts-jest',
   },

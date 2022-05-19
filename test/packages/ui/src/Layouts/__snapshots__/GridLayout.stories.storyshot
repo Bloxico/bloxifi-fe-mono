@@ -1,0 +1,324 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Storyshots Layout/GridLayout Details 1`] = `
+<div
+  style={
+    Object {
+      "padding": "2rem",
+    }
+  }
+>
+  <div
+    className="sc-jSMfEi jUsrAk"
+  >
+    <div
+      style={
+        Object {
+          "background": "#199fd5",
+          "minHeight": 50,
+        }
+      }
+    />
+    <div
+      style={
+        Object {
+          "background": "#199fd5",
+          "minHeight": 50,
+        }
+      }
+    />
+    <div
+      style={
+        Object {
+          "background": "#199fd5",
+          "minHeight": 50,
+        }
+      }
+    />
+    <div
+      style={
+        Object {
+          "background": "#199fd5",
+          "minHeight": 50,
+        }
+      }
+    />
+    <div
+      style={
+        Object {
+          "background": "#199fd5",
+          "minHeight": 50,
+        }
+      }
+    />
+    <div
+      style={
+        Object {
+          "background": "#199fd5",
+          "minHeight": 50,
+        }
+      }
+    />
+    <div
+      style={
+        Object {
+          "background": "#199fd5",
+          "minHeight": 50,
+        }
+      }
+    />
+    <div
+      style={
+        Object {
+          "background": "#199fd5",
+          "minHeight": 50,
+        }
+      }
+    />
+    <div
+      style={
+        Object {
+          "background": "#199fd5",
+          "minHeight": 50,
+        }
+      }
+    />
+    <div
+      style={
+        Object {
+          "background": "#199fd5",
+          "minHeight": 50,
+        }
+      }
+    />
+    <div
+      style={
+        Object {
+          "background": "#199fd5",
+          "minHeight": 50,
+        }
+      }
+    />
+    <div
+      style={
+        Object {
+          "background": "#199fd5",
+          "minHeight": 50,
+        }
+      }
+    />
+    <section
+      className="sc-eCYdqJ dyMMWM"
+      span={2}
+    >
+      <div
+        style={
+          Object {
+            "background": "#199fd5",
+            "minHeight": 50,
+          }
+        }
+      />
+    </section>
+    <section
+      className="sc-eCYdqJ dyMMWM"
+      span={2}
+    >
+      <div
+        style={
+          Object {
+            "background": "#199fd5",
+            "minHeight": 50,
+          }
+        }
+      />
+    </section>
+    <section
+      className="sc-eCYdqJ dyMMWM"
+      span={2}
+    >
+      <div
+        style={
+          Object {
+            "background": "#199fd5",
+            "minHeight": 50,
+          }
+        }
+      />
+    </section>
+    <section
+      className="sc-eCYdqJ dyMMWM"
+      span={2}
+    >
+      <div
+        style={
+          Object {
+            "background": "#199fd5",
+            "minHeight": 50,
+          }
+        }
+      />
+    </section>
+    <section
+      className="sc-eCYdqJ dyMMWM"
+      span={2}
+    >
+      <div
+        style={
+          Object {
+            "background": "#199fd5",
+            "minHeight": 50,
+          }
+        }
+      />
+    </section>
+    <section
+      className="sc-eCYdqJ dyMMWM"
+      span={2}
+    >
+      <div
+        style={
+          Object {
+            "background": "#199fd5",
+            "minHeight": 50,
+          }
+        }
+      />
+    </section>
+    <section
+      className="sc-eCYdqJ ALvyx"
+      span={3}
+    >
+      <div
+        style={
+          Object {
+            "background": "#199fd5",
+            "minHeight": 50,
+          }
+        }
+      />
+    </section>
+    <section
+      className="sc-eCYdqJ ALvyx"
+      span={3}
+    >
+      <div
+        style={
+          Object {
+            "background": "#199fd5",
+            "minHeight": 50,
+          }
+        }
+      />
+    </section>
+     
+    <section
+      className="sc-eCYdqJ ALvyx"
+      span={3}
+    >
+      <div
+        style={
+          Object {
+            "background": "#199fd5",
+            "minHeight": 50,
+          }
+        }
+      />
+    </section>
+     
+    <section
+      className="sc-eCYdqJ ALvyx"
+      span={3}
+    >
+      <div
+        style={
+          Object {
+            "background": "#199fd5",
+            "minHeight": 50,
+          }
+        }
+      />
+    </section>
+    <section
+      className="sc-eCYdqJ ALvyx"
+      span={3}
+    >
+      <div
+        style={
+          Object {
+            "background": "#199fd5",
+            "minHeight": 50,
+          }
+        }
+      />
+    </section>
+    <section
+      className="sc-eCYdqJ leZbci"
+      span={4}
+    >
+      <div
+        style={
+          Object {
+            "background": "#199fd5",
+            "minHeight": 50,
+          }
+        }
+      />
+    </section>
+     
+    <section
+      className="sc-eCYdqJ leZbci"
+      span={4}
+    >
+      <div
+        style={
+          Object {
+            "background": "#199fd5",
+            "minHeight": 50,
+          }
+        }
+      />
+    </section>
+     
+    <section
+      className="sc-eCYdqJ jRPnTW"
+      span={6}
+    >
+      <div
+        style={
+          Object {
+            "background": "#199fd5",
+            "minHeight": 50,
+          }
+        }
+      />
+    </section>
+    <section
+      className="sc-eCYdqJ jRPnTW"
+      span={6}
+    >
+      <div
+        style={
+          Object {
+            "background": "#199fd5",
+            "minHeight": 50,
+          }
+        }
+      />
+    </section>
+    <section
+      className="sc-eCYdqJ kuiAif"
+      span={12}
+    >
+      <div
+        style={
+          Object {
+            "background": "#199fd5",
+            "minHeight": 50,
+          }
+        }
+      />
+    </section>
+  </div>
+</div>
+`;
