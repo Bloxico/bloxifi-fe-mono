@@ -13,6 +13,7 @@
     "registry": "https://npm.pkg.github.com/"
   },
   "scripts": {
+    "typecheck": "tsc --noEmit",
     "build": "webpack --config ./config/webpack.prod.js"
   },
   "dependencies": {

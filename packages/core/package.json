@@ -6,7 +6,8 @@
   "author": "Aleksa Toljic <aleksa.toljic@bloxico.com>",
   "license": "MIT",
   "scripts": {
-    "test": "jest"
+    "test": "jest",
+    "typecheck": "tsc --noEmit"
   },
   "dependencies": {
     "i18next": "^21.3.2",
