@@ -1,4 +1,4 @@
-import i18n from 'i18next'
+import { use } from 'i18next'
 import LanguageDetector from 'i18next-browser-languagedetector'
 import { initReactI18next } from 'react-i18next'
 
@@ -6,8 +6,7 @@ import en from './translations/en.json'
 import sr from './translations/sr.json'
 
 export async function initTranslations() {
-  return i18n
-    .use(LanguageDetector)
+  return use(LanguageDetector)
     .use(initReactI18next)
     .init({
       resources: {

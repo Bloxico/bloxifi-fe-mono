@@ -1,6 +1,6 @@
 import { useReducer } from 'react'
 import { createContainer } from 'unstated-next'
-import i18n from 'i18next'
+import { changeLanguage } from 'i18next'
 import moment from 'moment'
 import { Action } from '@bloxifi/types'
 
@@ -37,7 +37,7 @@ function useLocale() {
   const [state, dispatch] = useReducer(reducer, localeInitialState)
 
   const setLanguage = async (value: string = localeInitialState.language) => {
-    await i18n.changeLanguage(value)
+    await changeLanguage(value)
     dispatch({ type: 'SET_LANGUAGE', value })
   }
 

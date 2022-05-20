@@ -1,6 +1,6 @@
 import { useReducer } from 'react'
 import { createContainer } from 'unstated-next'
-import i18n from 'i18next'
+import { t } from 'i18next'
 
 interface State {
   title: string
@@ -15,7 +15,7 @@ const reducer = (state: State, action) => {
     case 'setTitle': {
       return {
         ...state,
-        title: i18n.t(action.value),
+        title: t(action.value),
       }
     }
     default: {
