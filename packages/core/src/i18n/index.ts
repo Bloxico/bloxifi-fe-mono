@@ -3,6 +3,7 @@ import LanguageDetector from 'i18next-browser-languagedetector'
 import { initReactI18next } from 'react-i18next'
 
 import en from './translations/en.json'
+import sr from './translations/sr.json'
 
 export async function initTranslations() {
   return i18n
@@ -12,6 +13,9 @@ export async function initTranslations() {
       resources: {
         en: {
           translations: en,
+        },
+        sr: {
+          translations: sr,
         },
       },
       fallbackLng: 'en',

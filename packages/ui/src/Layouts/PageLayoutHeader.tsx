@@ -33,10 +33,10 @@ export const PageLayoutHeader = React.forwardRef(
 
     return (
       <Component ref={ref} {...props} className={className}>
-        <div className={'c-page-layout__header--logo'}>
+        <div className="c-page-layout__header--logo">
           <BoxLayout>
-            <NavWrapper to={'/'}>
-              <img width="26" height="26" src={'/img/logo.png'} />
+            <NavWrapper to="/">
+              <img width="26" height="26" src="/img/logo.png" />
               <Text color="white" bold>
                 System Test Matrix
               </Text>

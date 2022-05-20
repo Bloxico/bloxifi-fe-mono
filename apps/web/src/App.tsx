@@ -14,7 +14,7 @@ export const App = () => {
 
   return (
     <AppWrapper>
-      <ThemeProvider theme={style.state.theme}>
+      <ThemeProvider theme={Colors[style.state.theme]}>
         <NotificationManager />
         <PageContainer.Provider initialState={{ title: 'BloxiFi' }}>
           <UserContainer.Provider>

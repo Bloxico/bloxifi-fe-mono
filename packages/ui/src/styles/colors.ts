@@ -33,4 +33,11 @@ export const Colors = {
   textGray: '#57606A',
   tabHover: '#218BFF',
   blueLink: '#218BFF',
+
+  light: {
+    white: '#FFFFFF',
+  },
+  dark: {
+    white: '#000000',
+  },
 }

@@ -1,38 +1,30 @@
-import { Text, CoverLayout, StackLayout } from '@bloxifi/ui'
-import React from 'react'
+import { Text, CoverLayout, BoxLayout } from '@bloxifi/ui'
+import React, { useContext } from 'react'
 import { useTranslation } from 'react-i18next'
-import styled from 'styled-components'
+import styled, { ThemeContext } from 'styled-components'
+
+import { StyleContainer } from '@/containers/StyleContainer'
+import { LocaleContainer } from '@/containers/LocaleContainer'
 
 const HomePage = () => {
   const { t } = useTranslation()
+  const { setLanguage } = LocaleContainer.useContainer()
+  const { changeTheme } = StyleContainer.useContainer()
+  const themeContext = useContext(ThemeContext)
+
   return (
     <Wrapper>
       <CoverLayout>
-        <Text type="heading 1" semiBold align="center">
-          {t('bloxifi.home.sysTestMatrix')}
-        </Text>
-        <StackLayout
-          gap={4}
-          center
-          style={{ maxWidth: '700px' }}
-          data-testId="text-body"
-        >
-          <Text type="text xl" color="textGray" semiBold align="center">
-            {t('bloxifi.home.subHeading')}
+        <BoxLayout style={{ background: themeContext.white }}>
+          <Text type="heading 1" semiBold align="center">
+            {t('global.button')}
           </Text>
+        </BoxLayout>
 
-          <Text type="text xl" semiBold align="center">
-            <i>{t('bloxifi.home.paragraph1')}</i>
-          </Text>
-          <Text type="text xl" semiBold align="center">
-            <i>{t('bloxifi.home.paragraph2')}</i>
-          </Text>
-        </StackLayout>
-        <Footer>
-          <Text type="text xl" semiBold align="center">
-            {t('bloxifi.home.developedBy')}{' '}
-          </Text>
-        </Footer>
+        <button onClick={() => changeTheme('dark')}>Dark theme</button>
+        <button onClick={() => changeTheme('light')}>Light theme</button>
+        <button onClick={() => setLanguage('en')}>Change to Eng</button>
+        <button onClick={() => setLanguage('sr')}>Change to Serbian</button>
       </CoverLayout>
     </Wrapper>
   )
@@ -43,8 +35,4 @@ const Wrapper = styled.body`
   min-height: 100vh;
   display: flex;
   flex-direction: column;
-`
-const Footer = styled.div`
-  margin-top: auto;
-  margin-bottom: 1rem;
 `

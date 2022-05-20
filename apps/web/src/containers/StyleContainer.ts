@@ -1,25 +1,17 @@
-import { Dispatch, useReducer } from 'react'
+import { useReducer } from 'react'
 import { createContainer } from 'unstated-next'
 import { Action } from '@bloxifi/types'
 
 type ActionType = 'CHANGE_THEME' | 'SET_CSS' | 'UPDATE_CSS' | 'SET_BODY_SCROLL'
 
+type Theme = 'light' | 'dark'
+
 interface State {
-  customCss: string
-  theme: {
-    space: number[]
-    breakpoints: string[]
-    isBodyScrollable: boolean
-  }
+  theme: Theme
 }
 
 const initialState: State = {
-  customCss: '',
-  theme: {
-    space: [0, 8, 16, 24, 32],
-    breakpoints: ['32em', '48em', '64em'],
-    isBodyScrollable: true,
-  },
+  theme: 'light',
 }
 
 const reducer = (state: State, action: Action<ActionType>) => {
@@ -27,26 +19,7 @@ const reducer = (state: State, action: Action<ActionType>) => {
     case 'CHANGE_THEME': {
       return {
         ...state,
-        ...action.value,
-      }
-    }
-    case 'SET_BODY_SCROLL': {
-      return {
-        ...state,
-        theme: { ...state.theme, isBodyScrollable: action.value },
-      }
-    }
-    //probably not needed
-    case 'SET_CSS': {
-      return {
-        ...state,
-        customCss: action.value,
-      }
-    }
-    case 'UPDATE_CSS': {
-      return {
-        ...state,
-        customCss: state.customCss + action.value,
+        theme: action.value,
       }
     }
     default:
@@ -56,10 +29,13 @@ const reducer = (state: State, action: Action<ActionType>) => {
 
 function useContainer(): {
   state: State
-  dispatch: Dispatch<Action<ActionType>>
+  changeTheme: (theme: Theme) => void
 } {
   const [state, dispatch] = useReducer(reducer, initialState)
-  return { state, dispatch }
+  const changeTheme = (theme: Theme) => {
+    dispatch({ type: 'CHANGE_THEME', value: theme })
+  }
+  return { state, changeTheme }
 }
 
 export const StyleContainer = createContainer(useContainer)

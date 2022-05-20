@@ -21,7 +21,8 @@ module.exports = {
       1,
       { props: 'never', children: 'never' },
     ],
-    'import/no-unresolved': [1, { commonjs: true }],
+    'import/no-named-as-default-member': 0,
+    'import/no-unresolved': [1, { commonjs: true, amd: true }],
     'import/first': 2,
     'import/newline-after-import': 1,
     'import/order': [1, { 'newlines-between': 'always' }],
@@ -50,6 +51,15 @@ module.exports = {
   settings: {
     react: {
       version: 'detect',
+    },
+    'import/parsers': {
+      '@typescript-eslint/parser': ['.ts', '.tsx'],
+    },
+    'import/resolver': {
+      typescript: {
+        alwaysTryTypes: true, // always try to resolve types under `<root>@types` directory even it doesn't contain any source code, like `@types/unist`
+        project: ['packages/*/tsconfig.json', 'apps/*/tsconfig.json'],
+      },
     },
   },
   overrides: [
