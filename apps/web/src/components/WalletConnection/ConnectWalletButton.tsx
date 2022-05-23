@@ -47,13 +47,7 @@ export const ConnectWalletButton = () => {
         </StackLayout>
       ) : (
         <Text type="text xl" color="textGray" semiBold align="center">
-          <button
-            onClick={async () => {
-              await connect()
-            }}
-          >
-            Connect wallet
-          </button>
+          <button onClick={connect}>Connect wallet</button>
         </Text>
       )}
     </BoxLayout>
