@@ -1,6 +1,8 @@
 import React from 'react'
 import styled, { ThemeProvider } from 'styled-components'
 import { Colors } from '@bloxifi/ui'
+import { Web3ReactProvider } from '@web3-react/core'
+import { providers } from 'ethers'
 
 import { UserContainer } from '@/containers/UserContainer'
 import { PageContainer } from '@/containers/PageContainer'
@@ -12,17 +14,25 @@ import { Router } from '@/components/router/Router'
 export const App = () => {
   const style = StyleContainer.useContainer()
 
+  function getWeb3Library(provider: any): providers.Web3Provider {
+    const library = new providers.Web3Provider(provider)
+    library.pollingInterval = 12000
+    return library
+  }
+
   return (
     <AppWrapper>
       <ThemeProvider theme={Colors[style.state.theme]}>
-        <NotificationManager />
-        <PageContainer.Provider initialState={{ title: 'BloxiFi' }}>
-          <UserContainer.Provider>
-            <LocaleContainer.Provider>
-              <Router />
-            </LocaleContainer.Provider>
-          </UserContainer.Provider>
-        </PageContainer.Provider>
+        <Web3ReactProvider getLibrary={getWeb3Library}>
+          <NotificationManager />
+          <PageContainer.Provider initialState={{ title: 'BloxiFi' }}>
+            <UserContainer.Provider>
+              <LocaleContainer.Provider>
+                <Router />
+              </LocaleContainer.Provider>
+            </UserContainer.Provider>
+          </PageContainer.Provider>
+        </Web3ReactProvider>
       </ThemeProvider>
     </AppWrapper>
   )
