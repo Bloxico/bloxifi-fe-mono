@@ -10,11 +10,12 @@ import { StyleContainer } from '@/containers/StyleContainer'
 import { LocaleContainer } from '@/containers/LocaleContainer'
 import { NotificationManager } from '@/components/notification/NotificationManager'
 import { Router } from '@/components/router/Router'
+import { ExternalProvider } from '@ethersproject/providers'
 
 export const App = () => {
   const style = StyleContainer.useContainer()
 
-  function getWeb3Library(provider: any): providers.Web3Provider {
+  function getWeb3Library(provider: ExternalProvider): providers.Web3Provider {
     const library = new providers.Web3Provider(provider)
     library.pollingInterval = 12000
     return library

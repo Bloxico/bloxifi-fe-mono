@@ -5,27 +5,27 @@ import { InjectedConnector } from '@web3-react/injected-connector'
 import { BoxLayout, Text, StackLayout } from '@bloxifi/ui'
 
 export const ConnectWalletButton = () => {
-  const [error, setError] = useState(false)
-  const { activate, active, account, deactivate } = useWeb3React()
+  const [hasError, setHasError] = useState(false)
+  const web3Context = useWeb3React()
 
   async function connect() {
     try {
-      await activate(new InjectedConnector({}), undefined, true)
-      setError(false)
+      await web3Context.activate(new InjectedConnector({}), undefined, true)
+      setHasError(false)
     } catch (e) {
-      setError(true)
+      setHasError(true)
     }
   }
 
   function disconnect() {
     try {
-      deactivate()
+      web3Context.deactivate()
     } catch (error) {
-      console.log(error)
+      throw new Error(error)
     }
   }
 
-  if (error) {
+  if (hasError) {
     return (
       <Text type="text xl" color="red" semiBold align="center">
         Connection failed!
@@ -35,13 +35,13 @@ export const ConnectWalletButton = () => {
 
   return (
     <BoxLayout>
-      {active ? (
+      {web3Context.active ? (
         <StackLayout>
           <Text type="text xl" color="green" semiBold align="center">
             Connected!
           </Text>
           <Text type="text xl" color="textGray" semiBold align="center">
-            {account}
+            {web3Context.account}
           </Text>
           <button onClick={disconnect}>Disconnect</button>
         </StackLayout>
