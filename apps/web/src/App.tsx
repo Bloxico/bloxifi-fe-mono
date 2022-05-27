@@ -3,6 +3,7 @@ import styled, { ThemeProvider } from 'styled-components'
 import { Colors } from '@bloxifi/ui'
 import { Web3ReactProvider } from '@web3-react/core'
 import { providers } from 'ethers'
+import { ExternalProvider } from '@ethersproject/providers'
 
 import { UserContainer } from '@/containers/UserContainer'
 import { PageContainer } from '@/containers/PageContainer'
@@ -10,7 +11,7 @@ import { StyleContainer } from '@/containers/StyleContainer'
 import { LocaleContainer } from '@/containers/LocaleContainer'
 import { NotificationManager } from '@/components/notification/NotificationManager'
 import { Router } from '@/components/router/Router'
-import { ExternalProvider } from '@ethersproject/providers'
+import MetamaskProvider from './hooks/MetamaskProvider'
 
 export const App = () => {
   const style = StyleContainer.useContainer()
@@ -25,14 +26,16 @@ export const App = () => {
     <AppWrapper>
       <ThemeProvider theme={Colors[style.state.theme]}>
         <Web3ReactProvider getLibrary={getWeb3Library}>
-          <NotificationManager />
-          <PageContainer.Provider initialState={{ title: 'BloxiFi' }}>
-            <UserContainer.Provider>
-              <LocaleContainer.Provider>
-                <Router />
-              </LocaleContainer.Provider>
-            </UserContainer.Provider>
-          </PageContainer.Provider>
+          <MetamaskProvider>
+            <NotificationManager />
+            <PageContainer.Provider initialState={{ title: 'BloxiFi' }}>
+              <UserContainer.Provider>
+                <LocaleContainer.Provider>
+                  <Router />
+                </LocaleContainer.Provider>
+              </UserContainer.Provider>
+            </PageContainer.Provider>
+          </MetamaskProvider>
         </Web3ReactProvider>
       </ThemeProvider>
     </AppWrapper>

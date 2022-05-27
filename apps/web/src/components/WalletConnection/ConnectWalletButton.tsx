@@ -3,14 +3,7 @@ import React, { useEffect, useState } from 'react'
 import { useWeb3React } from '@web3-react/core'
 import { InjectedConnector } from '@web3-react/injected-connector'
 import { BoxLayout, Text, StackLayout } from '@bloxifi/ui'
-
-const supportedChains = {
-  1: 'mainnet',
-  3: 'ropsten',
-  4: 'rinkeby',
-  42: 'kovan',
-  1284: 'moonbeam',
-}
+import { supportedChainIds } from '../../hooks/MetamaskProvider'
 
 declare global {
   interface Window {
@@ -20,19 +13,21 @@ declare global {
 
 export const ConnectWalletButton = () => {
   const [hasError, setHasError] = useState(false)
-  const [currentNetwork, setCurrentNetwork] = useState<number | undefined>()
   const web3Context = useWeb3React()
-  const isWrongNetworkConnected =
-    currentNetwork && !supportedChains[currentNetwork]
   const isMetamaskInstalled = typeof window.ethereum !== 'undefined'
 
   useEffect(() => {
-    web3Context.chainId && setCurrentNetwork(web3Context.chainId)
+    //ntext.chainId && setCurrentNetwork(web3Context.chainId)
   }, [web3Context.chainId])
+  console.log('CHAIN', web3Context.chainId)
 
   async function connect() {
     try {
-      await web3Context.activate(new InjectedConnector({}), undefined, true)
+      await web3Context.activate(
+        new InjectedConnector({ supportedChainIds }),
+        undefined,
+        true,
+      )
       setHasError(false)
     } catch (e) {
       setHasError(true)
@@ -47,18 +42,24 @@ export const ConnectWalletButton = () => {
     }
   }
 
+  if (hasError) {
+    return (
+      <Text type="text xl" color="red" semiBold align="center">
+        Connection failed!
+      </Text>
+    )
+  }
+
   if (!isMetamaskInstalled) {
     return (
       <Text type="text xl" color="red" semiBold align="center">
         Please install Metamask
       </Text>
     )
-  }
-
-  if (hasError) {
+  } else if (!web3Context.active) {
     return (
       <Text type="text xl" color="red" semiBold align="center">
-        Connection failed!
+        Wrong network connection!
       </Text>
     )
   }
@@ -68,21 +69,13 @@ export const ConnectWalletButton = () => {
       <StackLayout>
         {web3Context.active ? (
           <>
-            {isWrongNetworkConnected ? (
-              <Text type="text xl" color="red" semiBold align="center">
-                Wrong network connection!
-              </Text>
-            ) : (
-              <>
-                <Text type="text xl" color="green" semiBold align="center">
-                  {`Connected to ${supportedChains[currentNetwork]} !`}
-                </Text>
-                <Text type="text xl" color="textGray" semiBold align="center">
-                  {web3Context.account}
-                </Text>
-                <button onClick={disconnect}>Disconnect</button>
-              </>
-            )}
+            <Text type="text xl" color="green" semiBold align="center">
+              Connected
+            </Text>
+            <Text type="text xl" color="textGray" semiBold align="center">
+              {web3Context.account}
+            </Text>
+            <button onClick={disconnect}>Disconnect</button>
           </>
         ) : (
           <Text type="text xl" color="textGray" semiBold align="center">
